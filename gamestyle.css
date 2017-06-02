@@ -1,0 +1,17 @@
+body {
+    background: url("maison.jpg") no-repeat;
+    background-size: cover;
+    background-position: 0px -10px;
+    height: 100vh;
+}
+
+#animal {
+    position: absolute;
+    top: 40em;
+    left: 0em;
+    height: 20em;
+}
+
+input {
+    display: flex;
+}
