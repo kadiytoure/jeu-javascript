@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jeu initiation au javascript</title>
-    <link rel="stylesheet" , href="../tp_js/gamestyle.css" />
+    <link rel="stylesheet" , href="gamestyle.css" />
 </head>
 
 <body>
 
     <ul class=""></ul>
 
-    <input type="button" value="cat" id="oui" />
-    <input type="button" value="bathroom" id="fm" />
-    <input type="button" value="kitchen" id="pr" />
-    <input type="button" value="living-room" id="st" />
-    <input type="button" value="room" id="jou" />
-    <img src="chattransparent.png" id="animal" />
+    <input type="button" value="cat" id="player" />
+    <input type="button" value=" bathroom" id="fm" />
+    <input type="button" value=" kitchen" id="pr" />
+    <input type="button" value=" living-room" id="st" />
+    <input type="button" value=" room" id="jou" />
+    <img src="../tp_js/images/chattransparent.png" id="animal" />
 
 
     <style>
@@ -126,20 +126,20 @@
 
     <script>
         /*
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        let oui = document.querySelector('#oui');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        let classes = oui.className;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        oui.addEventListener('animationed', function() {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            oui.className = classes;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        oui.addEventListener('click', function() {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            let button = document.querySelector('#input');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if (input.value === '') {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                oui.classList.add('pulseRed');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } else {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                oui.classList.add('pulseGreen');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }); 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                let oui = document.querySelector('#oui');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                let classes = oui.className;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                oui.addEventListener('animationed', function() {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    oui.className = classes;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                oui.addEventListener('click', function() {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    let button = document.querySelector('#input');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if (input.value === '') {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        oui.classList.add('pulseRed');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        oui.classList.add('pulseGreen');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }); 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
         let chat = {
             // clef : valeur,
             faim: 0,
@@ -162,6 +162,7 @@
         function nourrir(animal) {
             animal.faim += 100;
             console.log(animal.faim);
+
         }
         nourrir(chat);
 
@@ -194,35 +195,42 @@
 
             }
         }
-        document.querySelector("#oui").addEventListener("click", function() {
+        document.querySelector("#player").addEventListener("click", function() {
+            nourrir(chat);
+            laver(chat);
+            eduquer(chat);
+            divertir(chat);
+            afficherListe();
+        });
+        document.querySelector("#pr").addEventListener("click", function() {
             nourrir(chat);
             afficherListe();
         });
-        document.querySelector("#oui").addEventListener("click", function() {
+        document.querySelector("#fm").addEventListener("click", function() {
             laver(chat);
             afficherListe();
         });
-        document.querySelector("#oui").addEventListener("click", function() {
+        document.querySelector("#st").addEventListener("click", function() {
             eduquer(chat);
             afficherListe();
         });
-        document.querySelector("#oui").addEventListener("click", function() {
+        document.querySelector("#jou").addEventListener("click", function() {
             divertir(chat);
             afficherListe();
         });
         afficherListe();
+        /*
+                function affichage() {
+                    //for(let clef in objet personnage)
+                    for (let propriete in personnage) {
+                        //console.log(clef + ' ' + valeur);
+                        console.log(propriete + ' ' + personnage[propriete]);
+                    }
+                };
 
-        function affichage() {
-            //for(let clef in objet personnage)
-            for (let propriete in personnage) {
-                //console.log(clef + ' ' + valeur);
-                console.log(propriete + ' ' + personnage[propriete]);
-            }
-        };
 
-
-        affichage();
-
+                affichage();
+        */
 
         /*
                 document.querySelector("#oui").addEventListener("click", function() {

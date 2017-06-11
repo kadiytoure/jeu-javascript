@@ -1,8 +1,8 @@
 body {
-    background: url("maison.jpg") no-repeat;
+    background: url(../tp_js/images/maison.jpg) no-repeat;
     background-size: cover;
     background-position: 0px -10px;
-    height: 100vh;
+    height: 100%;
 }
 
 #animal {
