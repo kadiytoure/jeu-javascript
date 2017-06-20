@@ -1,17 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 body {
-    background: url(../tp_js/images/maison.jpg) no-repeat;
-    background-size: cover;
-    background-position: 0px -10px;
-    height: 100%;
+    position: absolute;
+    background-color: burlywood;
 }
 
 #animal {
     position: absolute;
-    top: 40em;
-    left: 0em;
-    height: 20em;
+    top: 21em;
+    left: -1em;
+    height: 14em;
+}
+
+#maison {
+    position: absolute;
+    top: 0;
+    left: 100;
+    z-index: -1;
+    width: 1060px;
+}
+
+.action {
+    font-family: 'Pacifico', cursive;
 }
 
 input {
     display: flex;
+    font-family: 'Pacifico', cursive;
 }

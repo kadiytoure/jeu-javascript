@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="chattransparent.png" />
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <title>The cat's house</title>
+    <link rel="stylesheet" , href="gamestyle.css" />
+</head>
+
+<body>
+    <main>
+        <img src="../tp_js/images/maison.jpg" id="maison" "no-repeat"/>
+
+        <ul class="action"></ul>
+
+        <input type="button" value="cat" id="player" />
+        <input type="button" value=" bathroom" id="fm" />
+        <input type="button" value=" kitchen" id="pr" />
+        <input type="button" value=" living-room" id="st" />
+        <input type="button" value=" room" id="jou" />
+        <img src="../tp_js/images/chattransparent.png" id="animal" />
+
+        <style>
+            /*
+        @keyframes toRed {
+            to {
+                background-color: red;
+            }
+        }
+        
+        @keyframes toGreen {
+            to {
+                background-color: green;
+            }
+        }
+        */
+            
+            @keyframes moveToBathroom {
+                to {
+                    top: 13em;
+                    left: 37em;
+                }
+            }
+            
+            .moveToBathroom {
+                animation: moveToBathroom 2s;
+                animation-duration: 2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+            
+            @keyframes moveToKitchen {
+                to {
+                    top: 20em;
+                    left: 38em;
+                }
+            }
+            
+            .moveToKitchen {
+                animation: moveToKitchen 2s;
+                animation-duration: 2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+            
+            @keyframes moveToLivingRoom {
+                to {
+                    top: 20em;
+                    left: 29em;
+                }
+            }
+            
+            .moveToLivingRoom {
+                animation: moveToLivingRoom 2s;
+                animation-duration: 2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+            
+            @keyframes moveToRoom {
+                to {
+                    top: 6em;
+                    left: 41em;
+                }
+            }
+            
+            .moveToRoom {
+                animation: moveToRoom 2s;
+                animation-duration: 2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+            /*
+        @keyframes ToLivingRoom {
+            to {
+                top: 30em;
+                left: 72em;
+            }
+        }
+        
+        .moveToLivingRoom {
+            animation: moveToKitchen 2s;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        
+        }
+        */
+            /*
+        @keyframes toLivingRoom {
+            to {
+                top: 15em;
+                left: 20em;
+                }
+        }
+        
+        .moveToLivingRoom {
+            animation: toLivingRoom 2s;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        */
+        </style>
+
+        <script>
+            /*
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    let oui = document.querySelector('#oui');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    let classes = oui.className;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    oui.addEventListener('animationed', function() {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        oui.className = classes;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    oui.addEventListener('click', function() {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        let button = document.querySelector('#input');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        if (input.value === '') {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            oui.classList.add('pulseRed');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            oui.classList.add('pulseGreen');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }); 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    */
+            let chat = {
+                // clef : valeur,
+                faim: 0,
+                proprete: 20,
+                saut: 30,
+                jouer: 10
+
+            };
+
+            function personnage() {
+                chat.proprete += 20;
+                chat.faim += 50;
+                chat.saut += 70;
+                chat.jouer += 40;
+                for (let propriete in chat) {
+                    console.log(propriete + '' + chat[propriete]);
+                }
+            }
+
+            function nourrir(animal) {
+                animal.faim += 100;
+                console.log(animal.faim);
+
+            }
+            nourrir(chat);
+
+            function laver(animal) {
+                animal.proprete += 80;
+                console.log(animal.proprete);
+            }
+            laver(chat);
+
+            function eduquer(animal) {
+                animal.saut += 70;
+                console.log(animal.saut);
+            }
+            eduquer(chat);
+
+            function divertir(animal) {
+                animal.jouer += 90;
+                console.log(animal.jouer);
+            }
+            divertir(chat);
+
+            let afficherListe = function() {
+                let ul = document.querySelector("ul");
+                ul.innerHTML = "";
+                for (let propriete in chat) {
+                    let li = document.createElement('li');
+                    li.textContent = chat[propriete];
+                    ul.appendChild(li);
+                    li.textContent = propriete + ':' + chat[propriete];
+
+                }
+            }
+            document.querySelector("#player").addEventListener("click", function() {
+                nourrir(chat);
+                laver(chat);
+                eduquer(chat);
+                divertir(chat);
+                afficherListe();
+            });
+            document.querySelector("#pr").addEventListener("click", function() {
+                nourrir(chat);
+                afficherListe();
+            });
+            document.querySelector("#fm").addEventListener("click", function() {
+                laver(chat);
+                afficherListe();
+            });
+            document.querySelector("#st").addEventListener("click", function() {
+                eduquer(chat);
+                afficherListe();
+            });
+            document.querySelector("#jou").addEventListener("click", function() {
+                divertir(chat);
+                afficherListe();
+            });
+            afficherListe();
+            /*
+                    function affichage() {
+                        //for(let clef in objet personnage)
+                        for (let propriete in personnage) {
+                            //console.log(clef + ' ' + valeur);
+                            console.log(propriete + ' ' + personnage[propriete]);
+                        }
+                    };
+
+
+                    affichage();
+            */
+
+            /*
+                    document.querySelector("#oui").addEventListener("click", function() {
+                        personnage.pv = personnage.pv - 10;
+                        console.log(personnage.pv);
+                    });
+                    document.querySelector("#no").addEventListener("click", function() {
+                        personnage.pm = personnage.pm - 10;
+                        console.log(personnage.pm);
+                    });
+                    */
+            /*
+            let oui = document.querySelector('#oui');
+            let classes = oui.className;
+            oui.addEventListener('animationend', function() {
+                oui.className = classes;
+            });
+            oui.addEventListener('click', function() {
+                let button = document.querySelector('#input');
+                if (input.value === '') {
+                    oui.classList.add('pulseRed');
+                } else {
+                    oui.classList.add('pulseGreen');
+                }
+            });
+            */
+
+            fm.addEventListener('click', function() {
+                let input = document.querySelector("#fm");
+                // if (input.value === '') {
+                animal.className = '';
+                animal.classList.add('moveToBathroom');
+
+                // }
+            });
+
+            pr.addEventListener('click', function() {
+                let input = document.querySelector("#pr");
+                animal.className = '';
+                animal.classList.add('moveToKitchen');
+            });
+            /*
+                    st.addEventListener('click', function() {
+                        let input = document.querySelector("#st");
+                        animal.classList.add('moveToRoom');
+                    });
+                    */
+            jou.addEventListener('click', function() {
+                let input = document.querySelector("#jou");
+                animal.className = '';
+                animal.classList.add('moveToRoom');
+            });
+
+            st.addEventListener('click', function() {
+                let input = document.querySelector("#st");
+                animal.className = '';
+                animal.classList.add('moveToLivingRoom');
+            });
+        </script>
+</body>
+
+</html>
