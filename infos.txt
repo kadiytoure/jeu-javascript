@@ -1,0 +1,2 @@
+Javascript & HTML/CSS:
+Réalisation d'un jeu éducatif à partir d'un chat comme personnage.
